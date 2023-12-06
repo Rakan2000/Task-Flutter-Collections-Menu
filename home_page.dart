@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 255, 172, 7),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -34,8 +34,8 @@ class HomeScreen extends StatelessWidget {
                       decoration: const BoxDecoration(shape: BoxShape.circle),
                       child: Image.asset(
                         Food.foodList[index].imgPath.toString(),
-                        height: 150,
-                        width: 150,
+                        height: 100,
+                        width: 100,
                       ),
                     )
                   ],
@@ -45,6 +45,8 @@ class HomeScreen extends StatelessWidget {
           );
         },
         itemCount: Food.foodList.length,
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       ),
     );
   }
